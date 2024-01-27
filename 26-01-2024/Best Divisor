@@ -1,1 +1,31 @@
+#!/bin/python3
 
+import math
+import os
+import random
+import re
+import sys
+
+def sum_of_digits(n):
+    return sum(int(digit) for digit in str(n))
+
+def best_divisor(n):
+    best_divisor = 1
+    max_digit_sum = 1
+
+    for divisor in range(2, n + 1):
+        if n % divisor == 0:
+            current_digit_sum = sum_of_digits(divisor)
+            if current_digit_sum > max_digit_sum or (current_digit_sum == max_digit_sum and divisor < best_divisor):
+                max_digit_sum = current_digit_sum
+                best_divisor = divisor
+
+    return best_divisor
+
+
+
+
+if __name__ == '__main__':
+    n = int(input().strip())
+    result = best_divisor(n)
+    print(result)
