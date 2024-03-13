@@ -29,5 +29,4 @@ print(reversed_number)
 
 Output
 
-123
 321
